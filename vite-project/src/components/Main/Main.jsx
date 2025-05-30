@@ -1,5 +1,6 @@
 import defaultClothingItems from "../../utils/constants.js"
 import WeatherCard from "../WeatherCard/Weathercard.jsx";
+import "./Main.css"
 
 export default function Main({ weather, clothingItems }) {
   const filteredItems = clothingItems.filter(item =>
@@ -10,7 +11,7 @@ export default function Main({ weather, clothingItems }) {
     <main className="main">
       <WeatherCard weather={weather} />
       <section>
-        <h2>Today is {weather?.temperature}°F / You may want to wear:</h2>
+        <h2 className="main__text">Today is {weather?.temperature}°F / You may want to wear:</h2>
         <ul className="clothing-list">
           {filteredItems.map(item => (
             <li key={item._id} className="clothing-list__item">

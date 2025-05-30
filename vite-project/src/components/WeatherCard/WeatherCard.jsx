@@ -1,5 +1,4 @@
 import "./WeatherCard.css";
-import getWeatherData from "../../utils/weatherApi";
 
 export default function WeatherCard({ weather }) {
   if (!weather) {
@@ -12,13 +11,16 @@ export default function WeatherCard({ weather }) {
 
   return (
     <section className="weather-card">
-      <div className="weather-card__temp">
-        {weather.temperature}°F
+      <div className="weather-card__content">
+        <span className="weather-card__temp">{weather.temperature}°F</span>
+        <span className="weather-card__svg">
+          <img
+            src={weather.icon}
+            alt={weather.description}
+            className="weather-card__icon-img"
+          />
+        </span>
       </div>
-      <div className="weather-card__desc">
-        {weather.description}
-      </div>
-      {/* Add more weather details or icons as needed */}
     </section>
   );
 }

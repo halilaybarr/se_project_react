@@ -44,18 +44,7 @@ export default function Header(props) {
             </div>
              <img src={userImg} alt="user Image" className="header__user-image"/>
             </div>
-                        
-  <div>
-                 {props.weather ? (
-                <div>
-                    <p>Weather: {props.weather.temperature}°F, {props.weather.description}</p>
-                </div>
-            ) : (
-                <p>Loading weather...</p>
-            )}
-        </div>
-
-
+                    
         </div>
         
     );
