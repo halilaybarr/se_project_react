@@ -1,7 +1,9 @@
 import headerLogo from "../../assets/WTWR-logo.svg"
+import userImg from "../../assets/user-image.svg"
 import getWeatherData from "../../utils/weatherApi";
 import { useEffect } from "react";
 import { useState } from "react";
+import "./Header.css"
 
 
 const currentDate = new Date().toLocaleString('default', { month: 'long', day: 'numeric' });
@@ -11,20 +13,17 @@ function AddClothes() {
     };
 
     return (
-        <button onClick={handleClick}>
-            +Add Clothes
+        <button onClick={handleClick} className="header__button">
+            + Add Clothes
         </button>
     );
 }
 
 export default function Header(props) {
-    const [weather, setWeather] = useState(null);
-
     useEffect(() => {
         getWeatherData("Seattle")
             .then(data => {
-                setWeather(data);
-                props.weather(data);
+                props.setWeather(data);
             })
             .catch(error => {
                 console.error('Error fetching weather data:', error);
@@ -32,18 +31,34 @@ export default function Header(props) {
     }, []);
 
     return (
-        <>
-            <img src={headerLogo} alt="App logo" />
-            {currentDate}
-            <AddClothes />
-            <h2>Terrence Tegegne</h2>
-            {weather ? (
+        <div className="header">
+            <div className="header__section">
+            <img src={headerLogo} alt="App logo" className="header__logo" />
+            <p className="header__info">
+                {currentDate}, {props.weather ? props.weather.city : "Loading..."}
+            </p>
+            </div>
+           <div className="header__section"> 
+            <div className="header__section-user-action"><AddClothes />
+            <h2 className="header__user-name">Terrence Tegegne</h2>
+            </div>
+             <img src={userImg} alt="user Image" className="header__user-image"/>
+            </div>
+                        
+  <div>
+                 {props.weather ? (
                 <div>
-                    <p>Weather: {weather.temperature}°C, {weather.description}</p>
+                    <p>Weather: {props.weather.temperature}°F, {props.weather.description}</p>
                 </div>
             ) : (
                 <p>Loading weather...</p>
             )}
-        </>
+        </div>
+
+
+        </div>
+        
     );
 }
+
+
