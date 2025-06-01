@@ -1,0 +1,15 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  margin: 40px;
+}
+
+.footer__text {
+  font-family: Cabinet Grotesk;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0%;
+  vertical-align: bottom;
+  color: #000000;
+}
