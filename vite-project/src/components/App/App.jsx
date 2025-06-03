@@ -1,12 +1,26 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
-import constants from "../../utils/constants";
+import { defaultClothingItems } from "../../utils/constants";
 import Footer from "./Footer/Footer";
+import getWeatherData from "../../utils/weatherApi";
 
 function App() {
   const [weather, setWeather] = useState();
+
+  useEffect(() => {
+    async function fetchWeather() {
+      try {
+        const data = await getWeatherData("Seattle");
+        setWeather(data);
+      } catch (error) {
+        console.error("Error fetching weather data:", error);
+      }
+    }
+
+    fetchWeather();
+  }, [setWeather]);
 
   return (
     <div className="App">
@@ -14,7 +28,7 @@ function App() {
       <Main
         className="main"
         weather={weather}
-        clothingItems={constants.defaultClothingItems}
+        clothingItems={defaultClothingItems}
       />
       <Footer className="Footer" />
     </div>

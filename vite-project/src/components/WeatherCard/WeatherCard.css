@@ -1,5 +1,6 @@
 .weather-card {
   position: relative;
+  margin-top: 60px;
   overflow: hidden;
   display: flex;
   height: 80px;
@@ -7,7 +8,7 @@
   overflow: hidden;
 }
 
-.weather__card-content {
+.weather-card__content {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -25,10 +26,12 @@
   position: absolute;
   top: 20px;
   left: 16px;
+  z-index: 2; /* Ensure it appears above the image */
 }
 
 .weather-card__img {
   object-fit: cover;
   object-position: right top;
   width: 100%;
+  z-index: 1; /* Ensure it stays below the text */
 }

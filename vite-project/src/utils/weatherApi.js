@@ -1,9 +1,10 @@
-import defaultClothingItems from "./constants.js";
+import { defaultClothingItems } from "./constants.js";
+import { apiKey } from "./constants.js";
 
 export default async function getWeatherData(city) {
   try {
     const response = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${defaultClothingItems.apiKey}&units=imperial`
+      `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`
     );
     if (!response.ok) {
       throw new Error("Network response was not ok");
