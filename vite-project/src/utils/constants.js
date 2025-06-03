@@ -1,5 +1,5 @@
-const apiKey = "4584a04c33b8880ab93181526ffc937f";
-const defaultClothingItems = [
+export const apiKey = "4584a04c33b8880ab93181526ffc937f";
+export const defaultClothingItems = [
   {
     _id: 0,
     name: "Cap",
@@ -37,8 +37,3 @@ const defaultClothingItems = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Coat.png?etag=298717ed89d5e40b1954a1831ae0bdd4",
   },
 ];
-
-export default {
-  apiKey,
-  defaultClothingItems,
-};
