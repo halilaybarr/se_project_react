@@ -1,9 +1,9 @@
-import apiKey from "./constants.js";
+import constants from "./constants.js";
 
 export default async function getWeatherData(city) {
   try {
     const response = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`
+      `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${constants.apiKey}&units=imperial`
     );
     if (!response.ok) {
       throw new Error("Network response was not ok");
